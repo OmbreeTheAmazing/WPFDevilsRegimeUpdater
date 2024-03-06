@@ -1,0 +1,24 @@
+﻿<Window x:Class="DevilsRegimeUpdater3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DevilsRegimeUpdater3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="254" Width="610" Icon="/Devil-3-icon_35211.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="128*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Pick your curseforge profile : " HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <Label Content="V1" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="38,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="520"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="112,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="86" Width="350"/>
+        <Button Content="Music :)" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click"/>
+        <MediaElement x:Name="MediaPlayer" HorizontalAlignment="Center" Height="20" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Center" LoadedBehavior="Manual" UnloadedBehavior="Stop"  Width="100" Visibility="Hidden"/>
+
+    </Grid>
+</Window>
