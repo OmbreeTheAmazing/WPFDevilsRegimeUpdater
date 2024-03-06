@@ -14,7 +14,7 @@
             <RowDefinition Height="44*"/>
         </Grid.RowDefinitions>
         <Label Content="Pick your curseforge profile : " HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
-        <Label Content="V1" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="version" Content="V1" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="38,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="520"/>
         <Button Content="Update" HorizontalAlignment="Left" Margin="112,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="86" Width="350"/>
         <Button Content="Music :)" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click"/>

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WMPLib;
+using Squirrel;
 
 namespace DevilsRegimeUpdater3
 {
@@ -22,10 +23,35 @@ namespace DevilsRegimeUpdater3
     /// </summary>
     public partial class MainWindow : Window
     {
+        UpdateManager manager;
         public MainWindow()
         {
             InitializeComponent();
             InitializeMediaPlayer();
+
+            Loaded += MainWindow_Loaded;
+        }
+
+        private async void checkForUpdates()
+        {
+            var updateInfo = await manager.CheckForUpdate();
+
+            if (updateInfo.ReleasesToApply.Count > 0)
+            {
+                await manager.UpdateApp();
+
+                MessageBox.Show("Updated Successfully");
+            }
+        }
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            manager = await UpdateManager
+                .GitHubUpdateManager(@"https://github.com/OmbreeTheAmazing/DevilsRegimeUpdaterUpdaterv2");
+
+            version.Content = manager.CurrentlyInstalledVersion().ToString();
+
+            checkForUpdates();
         }
 
         private void InitializeMediaPlayer()
