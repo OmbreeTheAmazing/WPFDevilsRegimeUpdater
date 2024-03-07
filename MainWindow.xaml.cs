@@ -65,7 +65,7 @@ namespace DevilsRegimeUpdater3
             try
             {
                 manager = await UpdateManager
-    .GitHubUpdateManager(@"https://github.com/OmbreeTheAmazing/DevilsRegimeUpdaterUpdaterv2");
+    .GitHubUpdateManager(@"https://github.com/OmbreeTheAmazing/WPFDevilsRegimeUpdater");
 
                 version.Content = manager.CurrentlyInstalledVersion().ToString();
 
