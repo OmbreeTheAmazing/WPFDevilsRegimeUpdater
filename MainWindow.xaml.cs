@@ -26,32 +26,53 @@ namespace DevilsRegimeUpdater3
         UpdateManager manager;
         public MainWindow()
         {
-            InitializeComponent();
-            InitializeMediaPlayer();
+            try
+            {
+                InitializeComponent();
+                InitializeMediaPlayer();
 
-            Loaded += MainWindow_Loaded;
+                Loaded += MainWindow_Loaded;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private async void checkForUpdates()
         {
-            var updateInfo = await manager.CheckForUpdate();
-
-            if (updateInfo.ReleasesToApply.Count > 0)
+            try
             {
-                await manager.UpdateApp();
+                var updateInfo = await manager.CheckForUpdate();
 
-                MessageBox.Show("Updated Successfully");
+                if (updateInfo.ReleasesToApply.Count > 0)
+                {
+                    await manager.UpdateApp();
+
+                    MessageBox.Show("Updated Successfully");
+                }
             }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            manager = await UpdateManager
-                .GitHubUpdateManager(@"https://github.com/OmbreeTheAmazing/DevilsRegimeUpdaterUpdaterv2");
+            try
+            {
+                manager = await UpdateManager
+    .GitHubUpdateManager(@"https://github.com/OmbreeTheAmazing/DevilsRegimeUpdaterUpdaterv2");
 
-            version.Content = manager.CurrentlyInstalledVersion().ToString();
+                version.Content = manager.CurrentlyInstalledVersion().ToString();
 
-            checkForUpdates();
+                checkForUpdates();
+            }
+            catch(Exception ex) { MessageBox.Show(ex.ToString()); }
+
         }
 
         private void InitializeMediaPlayer()
